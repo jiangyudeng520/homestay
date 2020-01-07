@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>民宿风格</title>
+<style>
+.noline{
+    font-size:0;
+}
+.startline{
+    font-size:20px;
+	background-color:gray;
+	height:50px;
+	text-align:center;
+	line-height:45px;
+	width:100%;
+	position:fixed;
+	top:0;
+	z-index:999;
+}
+.firstpage{
+    color:orange;
+	text-decoration:none;
+	margin:40px;
+}
+</style>
+
+<script type="text/javascript">
+    //html静态页初始化加载
+   window.onload=function(){ 
+      changeCoords(); 
+} 
+   //根据分辨率自适应热区坐标
+   function changeCoords(){
+       var width = document.getElementById("picture2").offsetWidth;
+       var height = document.getElementById("picture2").offsetHeight;
+       if (1920 == width) return;
+       var percent = width/1920;
+
+       var area = document.querySelectorAll('area');
+	   area.forEach(function(item){
+       var coords = item.coords;
+       var arr = coords.split(",");
+       for(var i=0;i<arr.length;i++){
+           arr[i] *= percent;
+           }
+       var str = arr.join(",");
+       item.setAttribute("coords",str);
+        });
+}
+</script>
+
+</head>
+<body>
+<div class="startline">
+<a href="#picture1" class="firstpage">首页</a>
+<a href="#picture2" class="firstpage">业务简介</a>
+<a href="#picture3" class="firstpage">采集登记</a>
+<a href="#picture4" class="firstpage">房客故事</a>
+<a href="#picture5" class="firstpage">加盟优势</a>
+</div>
+<div id="picture1" class="noline">
+	<img src="E:\picture\1.jpg" width="100%"; height="auto">
+</div>  
+<div id="picture2" class="noline" style="position: relative;">  
+	<img src="E:\picture\2.jpg" width="100%"; height="auto" usemap="#person">
+	<map name="person" id="person">
+	<area
+     shape="circle"
+     coords="420,1590,80"
+     href ="housetwo.html"
+     target ="_blank"
+     onFocus="this.blur()"
+     />
+	</map>
+</div>  
+<div id="picture3" class="noline">
+	<img src="E:\picture\3.jpg" width="100%"; height="auto">
+</div> 
+<div id="picture4" class="noline">
+	<img src="E:\picture\4.jpg" width="100%"; height="auto">
+</div> 
+<div id="picture5" class="noline">
+	<img src="E:\picture\5.jpg" width="100%"; height="auto">
+</div> 
+</body>
+</html>
